@@ -197,6 +197,14 @@ const LoginPage = () => {
             >
               or
             </Divider>
+            {/* <Alert icon={false} sx={{ py: 3, mb: 6, ...bgColors.primaryLight, '& .MuiAlert-message': { p: 0 } }}>
+              <Typography variant='body2' sx={{ mb: 2, color: 'primary.main' }}>
+                Admin: <strong>admin@vuexy.com</strong> / Pass: <strong>admin</strong>
+              </Typography>
+              <Typography variant='body2' sx={{ color: 'primary.main' }}>
+                Client: <strong>client@vuexy.com</strong> / Pass: <strong>client</strong>
+              </Typography>
+            </Alert> */}
             <Box sx={{ my: 6 }}>
               <Typography sx={{ color: 'text.secondary' }}>
                 To log in as a guest, use the credentials provided by administrators
