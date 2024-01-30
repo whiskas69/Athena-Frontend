@@ -37,6 +37,7 @@ import BlankLayout from 'src/@core/layouts/BlankLayout'
 
 // ** Demo Imports
 import { useRouter } from 'next/router'
+import FooterIllustrationsV2 from 'src/views/pages/auth/FooterIllustrationsV2'
 
 // ** Styled Components
 const LoginIllustration = styled('img')(({ theme }) => ({

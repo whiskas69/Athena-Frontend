@@ -29,8 +29,7 @@ const navigation = (): VerticalNavItemsType => {
     {
       title: 'My Instances',
       icon: 'tabler:server',
-      path: '/dashboards/ecommerce'
-      // path: '/apps/chat'
+      path: '/apps/chat'
     },
     {
       title: 'Credits',
@@ -351,7 +350,6 @@ const navigation = (): VerticalNavItemsType => {
     //   icon: 'tabler:brand-tabler'
     // },
     // {
-
     //   title: 'Cards',
     //   icon: 'tabler:id',
     //   children: [
