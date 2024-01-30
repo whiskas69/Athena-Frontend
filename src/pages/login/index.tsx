@@ -148,13 +148,18 @@ const LoginPage = () => {
             borderRadius: '20px',
             justifyContent: 'center',
             backgroundColor: 'customColors.bodyBg',
-            margin: theme => theme.spacing(8, 0, 8, 8)
+            margin: theme => theme.spacing(8, 0, 8, 8),
+            backgroundImage: `url('/images/athena/Login-wallpaper.png')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
           }}
         >
-          <LoginIllustration alt='login-illustration' src={`/images/pages/${imageSource}-${theme.palette.mode}.png`} />
+          <LoginIllustration alt='login-illustration' src={`/images/athena/frame.png`} />
           <FooterIllustrationsV2 />
         </Box>
       ) : null}
+
       <RightWrapper>
         <Box
           sx={{
@@ -175,22 +180,45 @@ const LoginPage = () => {
                 Please sign-in with your it.kmitl.ac.th Google account
               </Typography>
             </Box>
-            <IconButton
-              href='/'
-              component={Link}
-              sx={{ color: '#db4437' }}
-              onClick={() => router.push('https://www.google.com')}
+            <Button
+              fullWidth
+              onClick={() => router.push('https://8181-161-246-49-29.ngrok-free.app/auth/login/google')}
+              variant='contained'
+              sx={{
+                mb: 4,
+                color: '#DB4437',
+                backgroundColor: '#EA545540',
+                '&:hover': {
+                  backgroundColor: '#D9444560',
+                  color: '#FFFFFF'
+                }
+              }}
             >
               <Icon icon='mdi:google' />
-            </IconButton>
-            <Alert icon={false} sx={{ py: 3, mb: 6, ...bgColors.primaryLight, '& .MuiAlert-message': { p: 0 } }}>
+            </Button>
+            <Divider
+              sx={{
+                color: 'text.disabled',
+                '& .MuiDivider-wrapper': { px: 6 },
+                fontSize: theme.typography.body2.fontSize,
+                my: theme => `${theme.spacing(6)} !important`
+              }}
+            >
+              or
+            </Divider>
+            {/* <Alert icon={false} sx={{ py: 3, mb: 6, ...bgColors.primaryLight, '& .MuiAlert-message': { p: 0 } }}>
               <Typography variant='body2' sx={{ mb: 2, color: 'primary.main' }}>
                 Admin: <strong>admin@vuexy.com</strong> / Pass: <strong>admin</strong>
               </Typography>
               <Typography variant='body2' sx={{ color: 'primary.main' }}>
                 Client: <strong>client@vuexy.com</strong> / Pass: <strong>client</strong>
               </Typography>
-            </Alert>
+            </Alert> */}
+            <Box sx={{ my: 6 }}>
+              <Typography sx={{ color: 'text.secondary' }}>
+                To log in as a guest, use the credentials provided by administrators
+              </Typography>
+            </Box>
             <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
               <Box sx={{ mb: 4 }}>
                 <Controller
@@ -263,57 +291,13 @@ const LoginPage = () => {
                 </Typography>
               </Box>
               <Button fullWidth type='submit' variant='contained' sx={{ mb: 4 }}>
-                Login
+                Sign in
               </Button>
               <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-                <Typography sx={{ color: 'text.secondary', mr: 2 }}>New on our platform?</Typography>
+                <Typography sx={{ color: 'text.secondary', mr: 2 }}>Don't have credentials?</Typography>
                 <Typography href='/register' component={LinkStyled}>
-                  Create an account
+                  Request one
                 </Typography>
-              </Box>
-              <Divider
-                sx={{
-                  color: 'text.disabled',
-                  '& .MuiDivider-wrapper': { px: 6 },
-                  fontSize: theme.typography.body2.fontSize,
-                  my: theme => `${theme.spacing(6)} !important`
-                }}
-              >
-                or
-              </Divider>
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <IconButton
-                  href='/'
-                  component={Link}
-                  sx={{ color: '#497ce2' }}
-                  onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}
-                >
-                  <Icon icon='mdi:facebook' />
-                </IconButton>
-                <IconButton
-                  href='/'
-                  component={Link}
-                  sx={{ color: '#1da1f2' }}
-                  onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}
-                >
-                  <Icon icon='mdi:twitter' />
-                </IconButton>
-                <IconButton
-                  href='/'
-                  component={Link}
-                  onClick={(e: MouseEvent<HTMLElement>) => e.preventDefault()}
-                  sx={{ color: theme => (theme.palette.mode === 'light' ? '#272727' : 'grey.300') }}
-                >
-                  <Icon icon='mdi:github' />
-                </IconButton>
-                <IconButton
-                  href='/'
-                  component={Link}
-                  sx={{ color: '#db4437' }}
-                  onClick={() => router.push('https://8181-161-246-49-29.ngrok-free.app/auth/login/google')}
-                >
-                  <Icon icon='mdi:google' />
-                </IconButton>
               </Box>
             </form>
           </Box>
