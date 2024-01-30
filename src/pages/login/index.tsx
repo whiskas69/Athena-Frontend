@@ -1,11 +1,10 @@
 // ** React Imports
-import { useState, ReactNode, MouseEvent } from 'react'
+import { useState, ReactNode } from 'react'
 
 // ** Next Imports
 import Link from 'next/link'
 
 // ** MUI Components
-import Alert from '@mui/material/Alert'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import Checkbox from '@mui/material/Checkbox'
@@ -30,11 +29,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 
 // ** Hooks
 import { useAuth } from 'src/hooks/useAuth'
-import useBgColor from 'src/@core/hooks/useBgColor'
-import { useSettings } from 'src/@core/hooks/useSettings'
 
 // ** Configs
-import themeConfig from 'src/configs/themeConfig'
 
 // ** Layout Import
 import BlankLayout from 'src/@core/layouts/BlankLayout'
@@ -42,7 +38,6 @@ import BlankLayout from 'src/@core/layouts/BlankLayout'
 // ** Demo Imports
 import FooterIllustrationsV2 from 'src/views/pages/auth/FooterIllustrationsV2'
 import { useRouter } from 'next/router'
-import { fontWeight } from '@mui/system'
 
 // ** Styled Components
 const LoginIllustration = styled('img')(({ theme }) => ({
@@ -104,12 +99,9 @@ const LoginPage = () => {
   // ** Hooks
   const auth = useAuth()
   const theme = useTheme()
-  const bgColors = useBgColor()
-  const { settings } = useSettings()
   const hidden = useMediaQuery(theme.breakpoints.down('md'))
 
   // ** Vars
-  const { skin } = settings
 
   const {
     control,
@@ -133,7 +125,6 @@ const LoginPage = () => {
     }))
   }
 
-  const imageSource = skin === 'bordered' ? 'auth-v2-login-illustration-bordered' : 'auth-v2-login-illustration'
   const router = useRouter()
 
   return (
@@ -206,14 +197,6 @@ const LoginPage = () => {
             >
               or
             </Divider>
-            {/* <Alert icon={false} sx={{ py: 3, mb: 6, ...bgColors.primaryLight, '& .MuiAlert-message': { p: 0 } }}>
-              <Typography variant='body2' sx={{ mb: 2, color: 'primary.main' }}>
-                Admin: <strong>admin@vuexy.com</strong> / Pass: <strong>admin</strong>
-              </Typography>
-              <Typography variant='body2' sx={{ color: 'primary.main' }}>
-                Client: <strong>client@vuexy.com</strong> / Pass: <strong>client</strong>
-              </Typography>
-            </Alert> */}
             <Box sx={{ my: 6 }}>
               <Typography sx={{ color: 'text.secondary' }}>
                 To log in as a guest, use the credentials provided by administrators
