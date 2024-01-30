@@ -1,3 +1,5 @@
+// ---- ทำ Instent Detail ----
+
 // ** MUI Import
 import Grid from '@mui/material/Grid'
 
@@ -13,18 +15,29 @@ import EcommerceEarningReports from 'src/views/dashboards/ecommerce/EcommerceEar
 import EcommerceGeneratedLeads from 'src/views/dashboards/ecommerce/EcommerceGeneratedLeads'
 import EcommercePopularProducts from 'src/views/dashboards/ecommerce/EcommercePopularProducts'
 import EcommerceCongratulationsJohn from 'src/views/dashboards/ecommerce/EcommerceCongratulationsJohn'
+import Instanddetail from 'src/views/dashboards/ecommerce/Instanddetail'
 
 // ** Custom Component Import
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
+import { Typography } from '@mui/material'
 
 const EcommerceDashboard = () => {
   return (
     <ApexChartWrapper>
       <Grid container spacing={6}>
-        <Grid item xs={12} md={4}>
+        {/* add MyInstant detail : name */}
+        <Grid item xs={12} md={12}>
+          {/* don't change color in name instant yet */}
+          <Typography variant='h4'>My Instances / Aroi Compute (#JU-03)</Typography>
+        </Grid>
+
+        <Grid item xs={12} md={5}>
+          <Instanddetail/>
+        </Grid>
+        <Grid item xs={12} md={5}>
           <EcommerceCongratulationsJohn />
         </Grid>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12} md={7}>
           <EcommerceStatistics />
         </Grid>
         <Grid item xs={12} lg={4}>
