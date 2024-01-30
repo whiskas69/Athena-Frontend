@@ -15,7 +15,7 @@ import EcommerceEarningReports from 'src/views/dashboards/ecommerce/EcommerceEar
 import EcommerceGeneratedLeads from 'src/views/dashboards/ecommerce/EcommerceGeneratedLeads'
 import EcommercePopularProducts from 'src/views/dashboards/ecommerce/EcommercePopularProducts'
 import EcommerceCongratulationsJohn from 'src/views/dashboards/ecommerce/EcommerceCongratulationsJohn'
-import Instanddetail from 'src/views/dashboards/ecommerce/Instanddetail'
+import Instancesdetail from 'src/views/dashboards/ecommerce/Instancesdetail'
 
 // ** Custom Component Import
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
@@ -32,9 +32,9 @@ const EcommerceDashboard = () => {
         </Grid>
 
         <Grid item xs={12} md={5}>
-          <Instanddetail/>
+          <Instancesdetail />
         </Grid>
-        <Grid item xs={12} md={5}>
+        {/* <Grid item xs={12} md={5}>
           <EcommerceCongratulationsJohn />
         </Grid>
         <Grid item xs={12} md={7}>
@@ -70,7 +70,7 @@ const EcommerceDashboard = () => {
         </Grid>
         <Grid item xs={12} lg={8}>
           <EcommerceInvoiceTable />
-        </Grid>
+        </Grid> */}
       </Grid>
     </ApexChartWrapper>
   )

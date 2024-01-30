@@ -7,7 +7,7 @@ const navigation = (): VerticalNavItemsType => {
       title: 'Dashboards',
       icon: 'tabler:smart-home',
       badgeContent: 'new',
-      badgeColor: 'error',
+      badgeColor: 'error'
       // children: [
       //   {
       //     title: 'Analytics',
@@ -29,7 +29,8 @@ const navigation = (): VerticalNavItemsType => {
     {
       title: 'My Instances',
       icon: 'tabler:server',
-      path: '/apps/chat'
+      path: '/dashboards/ecommerce'
+      // path: '/apps/chat'
     },
     {
       title: 'Credits',
@@ -350,7 +351,7 @@ const navigation = (): VerticalNavItemsType => {
     //   icon: 'tabler:brand-tabler'
     // },
     // {
-      
+
     //   title: 'Cards',
     //   icon: 'tabler:id',
     //   children: [
@@ -469,7 +470,7 @@ const navigation = (): VerticalNavItemsType => {
     },
     {
       title: 'Support',
-      icon: 'tabler:headphones',
+      icon: 'tabler:headphones'
       // children: [
       //   {
       //     title: 'Text Field',
@@ -529,7 +530,7 @@ const navigation = (): VerticalNavItemsType => {
       icon: 'tabler:file-description',
       title: 'Documentation',
       path: '/forms/form-layouts'
-    },
+    }
     // {
     //   title: 'Form Validation',
     //   path: '/forms/form-validation',
@@ -617,7 +618,7 @@ const navigation = (): VerticalNavItemsType => {
     //       openInNewTab: true,
     //       path: 'https://demos.pixinvent.com/vuexy-nextjs-admin-template/documentation'
     //     }
-      // ]
+    // ]
     // }
   ]
 }
