@@ -30,16 +30,16 @@ interface DataTag {
   tag: string
 }
 
-interface DataDetail {
-  id: string
-  author: string
-  createdAt: string
-  expiredAt: string
-  size: string
-  type: string
-  server: string
-  location: string 
-}
+// interface DataDetail {
+//   id: string
+//   author: string
+//   createdAt: string
+//   expiredAt: string
+//   size: string
+//   type: string
+//   server: string
+//   location: string 
+// }
 
 const data: DataType[] = [
   {
