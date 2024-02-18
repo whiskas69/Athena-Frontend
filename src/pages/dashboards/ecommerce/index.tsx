@@ -16,7 +16,7 @@ import EcommerceRevenueReport from 'src/views/dashboards/ecommerce/EcommerceReve
 import EcommerceEarningReports from 'src/views/dashboards/ecommerce/EcommerceEarningReports'
 import EcommerceGeneratedLeads from 'src/views/dashboards/ecommerce/EcommerceGeneratedLeads'
 import EcommercePopularProducts from 'src/views/dashboards/ecommerce/EcommercePopularProducts'
-import EcommerceCongratulationsJohn from 'src/views/dashboards/ecommerce/EcommerceCongratulationsJohn'
+import BasicInfo from 'src/views/dashboards/ecommerce/BasicInfo'
 import Instancesdetail from 'src/views/dashboards/ecommerce/Instancesdetail'
 
 // ** Custom Component Import
@@ -90,7 +90,7 @@ const EcommerceDashboard = () => {
             </Tabs>
           </Box>
           <CustomTabPanel value={value} index={0}>
-            TITI
+            <BasicInfo />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
             22
