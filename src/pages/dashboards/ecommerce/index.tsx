@@ -1,5 +1,7 @@
 // ---- ทำ Instent Detail ----
 
+import * as React from 'react'
+
 // ** MUI Import
 import Grid from '@mui/material/Grid'
 
@@ -19,9 +21,54 @@ import Instancesdetail from 'src/views/dashboards/ecommerce/Instancesdetail'
 
 // ** Custom Component Import
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
-import { Typography } from '@mui/material'
+import { Tab, Tabs, Typography } from '@mui/material'
+import { TabPanel } from '@mui/lab'
+import { Box } from '@mui/system'
+import PersonIcon from '@mui/icons-material/Person'
+import FileIcon from '@mui/icons-material/InsertDriveFileOutlined'
+import LockIcon from '@mui/icons-material/LockOutlined'
+// import Icon from 'src/@core/components/icon'
+
+interface TabPanelProps {
+  children?: React.ReactNode
+  index: number
+  value: number
+}
+
+function CustomTabPanel(props: TabPanelProps) {
+  const { children, value, index, ...other } = props
+
+  return (
+    <div
+      role='tabpanel'
+      hidden={value !== index}
+      id={`simple=tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  )
+}
+
+function allyProps(index: number) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`
+  }
+}
 
 const EcommerceDashboard = () => {
+  const [value, setValue] = React.useState(0)
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue)
+  }
+
   return (
     <ApexChartWrapper>
       <Grid container spacing={6}>
@@ -31,46 +78,27 @@ const EcommerceDashboard = () => {
           <Typography variant='h4'>My Instances / Aroi Compute (#JU-03)</Typography>
         </Grid>
 
-        <Grid item xs={12} md={5}>
+        <Grid item xs={12} md={4}>
           <Instancesdetail />
         </Grid>
-        {/* <Grid item xs={12} md={5}>
-          <EcommerceCongratulationsJohn />
+        <Grid item xs={12} md={8}>
+          <Box>
+            <Tabs value={value} onChange={handleChange}>
+              <Tab icon={<PersonIcon />} iconPosition='start' label='Basic Information' {...allyProps(0)} />
+              <Tab icon={<FileIcon />} iconPosition='start' label='Files' {...allyProps(1)} />
+              <Tab icon={<PersonIcon />} iconPosition='start' label='Security' {...allyProps(2)} />
+            </Tabs>
+          </Box>
+          <CustomTabPanel value={value} index={0}>
+            TITI
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={1}>
+            22
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={3}>
+            33
+          </CustomTabPanel>
         </Grid>
-        <Grid item xs={12} md={7}>
-          <EcommerceStatistics />
-        </Grid>
-        <Grid item xs={12} lg={4}>
-          <Grid container spacing={6}>
-            <Grid item xs={6} md={3} lg={6}>
-              <EcommerceExpenses />
-            </Grid>
-            <Grid item xs={6} md={3} lg={6}>
-              <EcommerceProfit />
-            </Grid>
-            <Grid item xs={12} md={6} lg={12}>
-              <EcommerceGeneratedLeads />
-            </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={12} lg={8}>
-          <EcommerceRevenueReport />
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <EcommerceEarningReports />
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <EcommercePopularProducts />
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <EcommerceOrders />
-        </Grid>
-        <Grid item xs={12} md={6} lg={4}>
-          <EcommerceTransactions />
-        </Grid>
-        <Grid item xs={12} lg={8}>
-          <EcommerceInvoiceTable />
-        </Grid> */}
       </Grid>
     </ApexChartWrapper>
   )
