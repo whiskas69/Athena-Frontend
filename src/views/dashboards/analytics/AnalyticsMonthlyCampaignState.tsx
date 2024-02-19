@@ -75,7 +75,14 @@ const AnalyticsMonthlyCampaignState = () => {
   return (
     <Card>
       <CardHeader
-        title='500'
+        title={
+          <>
+            <Typography variant="h4" gutterBottom>
+              500
+            </Typography>
+            <Typography>Available Credits</Typography>
+          </>
+        }
       // subheader='8.52k Social Visitors'
       // action={
       //   <OptionsMenu
@@ -84,9 +91,9 @@ const AnalyticsMonthlyCampaignState = () => {
       //   />
       // }
       />
-      <CardContent>
-        <Typography>Available Credits</Typography>
-      </CardContent>
+      {/* <CardContent> */}
+      {/* <Typography>Available Credits</Typography> */}
+      {/* </CardContent> */}
       {/* <CardContent>
         {data.map((item: DataType, index: number) => {
           return (
