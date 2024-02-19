@@ -75,16 +75,19 @@ const AnalyticsMonthlyCampaignState = () => {
   return (
     <Card>
       <CardHeader
-        title='Monthly Campaign State'
-        subheader='8.52k Social Visitors'
-        action={
-          <OptionsMenu
-            options={['Last Month', 'Last 6 Months', 'Last Year']}
-            iconButtonProps={{ size: 'small', sx: { color: 'text.disabled' } }}
-          />
-        }
+        title='500'
+      // subheader='8.52k Social Visitors'
+      // action={
+      //   <OptionsMenu
+      //     options={['Last Month', 'Last 6 Months', 'Last Year']}
+      //     iconButtonProps={{ size: 'small', sx: { color: 'text.disabled' } }}
+      //   />
+      // }
       />
       <CardContent>
+        <Typography>Available Credits</Typography>
+      </CardContent>
+      {/* <CardContent>
         {data.map((item: DataType, index: number) => {
           return (
             <Box
@@ -125,7 +128,7 @@ const AnalyticsMonthlyCampaignState = () => {
             </Box>
           )
         })}
-      </CardContent>
+      </CardContent> */}
     </Card>
   )
 }

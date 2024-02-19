@@ -64,17 +64,17 @@ const AnalyticsSalesByCountries = () => {
   return (
     <Card>
       <CardHeader
-        title='Sales by Countries'
-        subheader='Monthly Sales Overview'
-        action={
-          <OptionsMenu
-            options={['Last Week', 'Last Month', 'Last Year']}
-            iconButtonProps={{ size: 'small', sx: { color: 'text.disabled' } }}
-          />
-        }
+        title='0 / 5'
+      // action={
+      //   <OptionsMenu
+      //     options={['Last Week', 'Last Month', 'Last Year']}
+      //     iconButtonProps={{ size: 'small', sx: { color: 'text.disabled' } }}
+      //   />
+      // }
       />
       <CardContent>
-        {data.map((item: DataType, index: number) => {
+        <Typography>Active Instances</Typography>
+        {/* {data.map((item: DataType, index: number) => {
           return (
             <Box
               key={item.title}
@@ -121,7 +121,7 @@ const AnalyticsSalesByCountries = () => {
               </Box>
             </Box>
           )
-        })}
+        })} */}
       </CardContent>
     </Card>
   )
