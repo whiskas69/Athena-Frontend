@@ -84,9 +84,15 @@ const EcommerceDashboard = () => {
         <Grid item xs={12} md={8}>
           <Box>
             <Tabs value={value} onChange={handleChange}>
-              <Tab icon={<PersonIcon />} iconPosition='start' label='Basic Information' {...allyProps(0)} />
-              <Tab icon={<FileIcon />} iconPosition='start' label='Files' {...allyProps(1)} />
-              <Tab icon={<PersonIcon />} iconPosition='start' label='Security' {...allyProps(2)} />
+              <Tab
+                disableRipple
+                icon={<PersonIcon />}
+                iconPosition='start'
+                label='Basic Information'
+                {...allyProps(0)}
+              />
+              <Tab disableRipple icon={<FileIcon />} iconPosition='start' label='Files' {...allyProps(1)} />
+              <Tab disableRipple icon={<PersonIcon />} iconPosition='start' label='Security' {...allyProps(2)} />
             </Tabs>
           </Box>
           <CustomTabPanel value={value} index={0}>
@@ -95,7 +101,7 @@ const EcommerceDashboard = () => {
           <CustomTabPanel value={value} index={1}>
             22
           </CustomTabPanel>
-          <CustomTabPanel value={value} index={3}>
+          <CustomTabPanel value={value} index={2}>
             33
           </CustomTabPanel>
         </Grid>

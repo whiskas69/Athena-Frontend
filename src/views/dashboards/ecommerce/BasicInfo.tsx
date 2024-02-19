@@ -9,8 +9,7 @@ import Typography from '@mui/material/Typography'
 import CardContent from '@mui/material/CardContent'
 import { Box } from '@mui/system'
 import { Grid } from '@mui/material'
-
-// ** MUI Imports
+import { SelectChangeEvent } from '@mui/material/Select'
 import MenuItem from '@mui/material/MenuItem'
 
 // ** Icon Imports
@@ -20,34 +19,28 @@ import Icon from 'src/@core/components/icon'
 import CustomAvatar from 'src/@core/components/mui/avatar'
 import CustomTextField from 'src/@core/components/mui/text-field'
 
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemIcon from '@mui/material/ListItemIcon'
-import ListItemText from '@mui/material/ListItemText'
-
 interface State {
   token: string
   showtoken: boolean
 }
 
+interface Storage {
+  usestorage: string
+}
+
 const InstantDetail = () => {
   // ** States
   const [values, setValues] = useState<State>({
-    token: '',
+    token: 'qqqqqq',
     showtoken: false
   })
 
-  const storageCapacity = {
-    Storage1: 2,
-    Storage2: 10,
-    Storage3: 5.3,
-    Storage4: 49
-  }
+  const [storage, setstorage] = useState<Storage>({
+    usestorage: ''
+  })
 
-  const selectedStorage = 'Storage1'
-
-  const hasLowCapacity = (capacity: number) => {
-    return capacity < 10
+  const handleStorageChange = (event: SelectChangeEvent) => {
+    setstorage({ usestorage: event.target.value as string })
   }
 
   return (
@@ -82,7 +75,6 @@ const InstantDetail = () => {
                     label='Access Token'
                     value={values.token}
                     type={values.showtoken ? 'text' : 'password'}
-                    placeholder='············'
                     disabled
                   />
                 </Grid>
@@ -112,16 +104,28 @@ const InstantDetail = () => {
                   <CustomTextField
                     select
                     fullWidth
-                    defaultValue='Storage1'
-                    sx={{ display: 'flex', flexDirection: 'row' }}
+                    id='form-layouts-separator-select'
+                    value={storage.usestorage}
+                    onChange={handleStorageChange}
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      alignItems: 'center'
+                    }}
                   >
                     <MenuItem
                       value='Storage1'
-                      sx={{ display: 'flex', alignItems: 'center', gap: 2,}}
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 2,
+                        marginBottom: 0,
+                        width: '100%'
+                      }}
                     >
                       <Icon icon='tabler:database' fontSize='1.2rem' style={{ marginRight: 2 }} />
                       Storage 1 : 2 / 50 GB{' '}
-                      {selectedStorage === 'Storage1' && (
+                      {storage.usestorage === 'Storage1' && (
                         <Typography
                           sx={{
                             color: '#28C76F',
@@ -142,20 +146,12 @@ const InstantDetail = () => {
                     <MenuItem value='Storage2' sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                       <Icon icon='tabler:database' fontSize='1.2rem' />
                       Storage 2 : 10 / 50 GB
-                    </MenuItem>
-                    <MenuItem value='Storage3' sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                      <Icon icon='tabler:database' fontSize='1.2rem' />
-                      Storage 3 : 5.3 / 50 GB
-                    </MenuItem>
-                    <MenuItem value='Storage4' sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                      <Icon icon='tabler:database' fontSize='1.2rem' />
-                      Storage 4 : 49 / 50 GB
-                      {selectedStorage === 'Storage1' && (
+                      {storage.usestorage === 'Storage2' && (
                         <Typography
                           sx={{
-                            color: '#FF9F43',
-                            backgroundColor: '#FF9F4329',
-                            width: '105px',
+                            color: '#28C76F',
+                            backgroundColor: '#28C76F29',
+                            width: '75px',
                             height: '24px',
                             borderRadius: '4px',
                             paddingY: '5px',
@@ -164,9 +160,66 @@ const InstantDetail = () => {
                             gap: '10px'
                           }}
                         >
-                          Low Capacity
+                          Selected
                         </Typography>
                       )}
+                    </MenuItem>
+                    <MenuItem value='Storage3' sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                      <Icon icon='tabler:database' fontSize='1.2rem' />
+                      Storage 3 : 5.3 / 50 GB
+                      {storage.usestorage === 'Storage3' && (
+                        <Typography
+                          sx={{
+                            color: '#28C76F',
+                            backgroundColor: '#28C76F29',
+                            width: '75px',
+                            height: '24px',
+                            borderRadius: '4px',
+                            paddingY: '5px',
+                            paddingX: '10px',
+                            textAlign: 'center',
+                            gap: '10px'
+                          }}
+                        >
+                          Selected
+                        </Typography>
+                      )}
+                    </MenuItem>
+                    <MenuItem value='Storage4' sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                      <Icon icon='tabler:database' fontSize='1.2rem' />
+                      Storage 4 : 49 / 50 GB
+                      {storage.usestorage === 'Storage4' && (
+                        <Typography
+                          sx={{
+                            color: '#28C76F',
+                            backgroundColor: '#28C76F29',
+                            width: '75px',
+                            height: '24px',
+                            borderRadius: '4px',
+                            paddingY: '5px',
+                            paddingX: '10px',
+                            textAlign: 'center',
+                            gap: '10px'
+                          }}
+                        >
+                          Selected
+                        </Typography>
+                      )}
+                      <Typography
+                        sx={{
+                          color: '#FF9F43',
+                          backgroundColor: '#FF9F4329',
+                          width: '105px',
+                          height: '24px',
+                          borderRadius: '4px',
+                          paddingY: '5px',
+                          paddingX: '10px',
+                          textAlign: 'center',
+                          gap: '10px'
+                        }}
+                      >
+                        Low Capacity
+                      </Typography>
                     </MenuItem>
                   </CustomTextField>
                 </Grid>
