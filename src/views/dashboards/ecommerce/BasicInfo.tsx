@@ -199,7 +199,8 @@ const InstantDetail = () => {
                             paddingY: '5px',
                             paddingX: '10px',
                             textAlign: 'center',
-                            gap: '10px'
+                            gap: '10px',
+                            marginBottom: 2
                           }}
                         >
                           Selected
