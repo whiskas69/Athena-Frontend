@@ -147,7 +147,14 @@ const AnalyticsTotalEarning = () => {
   return (
     <Card>
       <CardHeader
-        title='2 GB / 50 GB'
+        title={
+          <>
+            <Typography variant="h4" gutterBottom>
+              2 GB / 50 GB
+            </Typography>
+            <Typography>Storage Used</Typography>
+          </>
+        }
       // action={
       //   <OptionsMenu
       //     options={['Refresh', 'Share', 'Update']}
@@ -168,9 +175,9 @@ const AnalyticsTotalEarning = () => {
       //   </Box>
       // }
       />
-      <CardContent>
-        <Typography>Storage Used</Typography>
-      </CardContent>
+      {/* <CardContent> */}
+      {/* <Typography>Storage Used</Typography> */}
+      {/* </CardContent> */}
       {/* <CardContent>
         <ReactApexcharts type='bar' height={178} series={series} options={options} />
         {data.map((item: DataType, index: number) => {

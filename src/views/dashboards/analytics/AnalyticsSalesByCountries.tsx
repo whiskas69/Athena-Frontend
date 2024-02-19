@@ -62,9 +62,16 @@ const data: DataType[] = [
 
 const AnalyticsSalesByCountries = () => {
   return (
-    <Card>
+    <Card >
       <CardHeader
-        title='0 / 5'
+        title={
+          <div style={{ display: 'flex', flexDirection: 'row', }}>
+            <Typography variant="h2" gutterBottom>
+              0 / 5
+            </Typography>
+            <Typography>Active Instances</Typography>
+          </div>
+        }
       // action={
       //   <OptionsMenu
       //     options={['Last Week', 'Last Month', 'Last Year']}
@@ -72,9 +79,10 @@ const AnalyticsSalesByCountries = () => {
       //   />
       // }
       />
-      <CardContent>
-        <Typography>Active Instances</Typography>
-        {/* {data.map((item: DataType, index: number) => {
+      {/* <CardContent> */}
+      {/* <Typography>Active Instances</Typography> */}
+      {/* <Box></Box> */}
+      {/* {data.map((item: DataType, index: number) => {
           return (
             <Box
               key={item.title}
@@ -122,7 +130,7 @@ const AnalyticsSalesByCountries = () => {
             </Box>
           )
         })} */}
-      </CardContent>
+      {/* </CardContent> */}
     </Card>
   )
 }
