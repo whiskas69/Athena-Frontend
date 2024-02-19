@@ -3,7 +3,6 @@
 // ** MUI Imports
 import Card from '@mui/material/Card'
 import Button from '@mui/material/Button'
-import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import CardContent from '@mui/material/CardContent'
 import { Box, textAlign } from '@mui/system'
