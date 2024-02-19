@@ -35,7 +35,7 @@ const FooterContent = () => {
         </Box>
         {`by`}
         <Typography sx={{ ml: 1 }} target='_blank' href='https://pixinvent.com' component={StyledCompanyName}>
-          Pixinvent
+          YunChao Innovation
         </Typography>
       </Typography>
       {hidden ? null : (

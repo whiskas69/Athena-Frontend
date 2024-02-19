@@ -147,28 +147,31 @@ const AnalyticsTotalEarning = () => {
   return (
     <Card>
       <CardHeader
-        title='Total Earning'
-        action={
-          <OptionsMenu
-            options={['Refresh', 'Share', 'Update']}
-            iconButtonProps={{ size: 'small', sx: { color: 'text.disabled' } }}
-          />
-        }
-        subheader={
-          <Box
-            sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', '& svg': { mr: 1, color: 'success.main' } }}
-          >
-            <Typography variant='h1' sx={{ mr: 2 }}>
-              87%
-            </Typography>
-            <Icon fontSize='1.25rem' icon='tabler:chevron-up' />
-            <Typography variant='h6' sx={{ color: 'success.main' }}>
-              25.8%
-            </Typography>
-          </Box>
-        }
+        title='2 GB / 50 GB'
+      // action={
+      //   <OptionsMenu
+      //     options={['Refresh', 'Share', 'Update']}
+      //     iconButtonProps={{ size: 'small', sx: { color: 'text.disabled' } }}
+      //   />
+      // }
+      // subheader={
+      //   <Box
+      //     sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', '& svg': { mr: 1, color: 'success.main' } }}
+      //   >
+      //     <Typography variant='h1' sx={{ mr: 2 }}>
+      //       87%
+      //     </Typography>
+      //     <Icon fontSize='1.25rem' icon='tabler:chevron-up' />
+      //     <Typography variant='h6' sx={{ color: 'success.main' }}>
+      //       25.8%
+      //     </Typography>
+      //   </Box>
+      // }
       />
       <CardContent>
+        <Typography>Storage Used</Typography>
+      </CardContent>
+      {/* <CardContent>
         <ReactApexcharts type='bar' height={178} series={series} options={options} />
         {data.map((item: DataType, index: number) => {
           return (
@@ -215,7 +218,7 @@ const AnalyticsTotalEarning = () => {
             </Box>
           )
         })}
-      </CardContent>
+      </CardContent> */}
     </Card>
   )
 }
