@@ -67,7 +67,7 @@ const AnalyticsSalesByCountries = () => {
         title={
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
             <Typography variant="h1" gutterBottom>
-              0 / 5
+              0/5
             </Typography>
             <Typography>Active Instances</Typography>
 
