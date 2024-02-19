@@ -65,11 +65,12 @@ const AnalyticsSalesByCountries = () => {
     <Card >
       <CardHeader
         title={
-          <div style={{ display: 'flex', flexDirection: 'row', }}>
-            <Typography variant="h2" gutterBottom>
+          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+            <Typography variant="h1" gutterBottom>
               0 / 5
             </Typography>
             <Typography>Active Instances</Typography>
+
           </div>
         }
       // action={
