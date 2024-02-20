@@ -52,7 +52,7 @@ export type CardStatsType = {
 // User Profile pages
 //-------------------
 export type ProjectTableRowType = {
-  id: number
+  id: string
   endDate: string
   name: string
   author: string
