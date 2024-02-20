@@ -1,12 +1,12 @@
 // Type Imports
-import { ThemeColor } from 'src/@core/layouts/types'
 import {
+  CardStatsHorizontalProps,
+  CardStatsHorizontalWithDetailsProps,
   CardStatsSquareProps,
   CardStatsVerticalProps,
-  CardStatsHorizontalProps,
-  CardStatsWithAreaChartProps,
-  CardStatsHorizontalWithDetailsProps
+  CardStatsWithAreaChartProps
 } from 'src/@core/components/card-statistics/types'
+import { ThemeColor } from 'src/@core/layouts/types'
 
 // Template Search
 //----------------
@@ -53,12 +53,10 @@ export type CardStatsType = {
 //-------------------
 export type ProjectTableRowType = {
   id: number
-  date: string
+  endDate: string
   name: string
-  leader: string
+  author: string
   status: number
-  avatar?: string
-  avatarGroup: string[]
   avatarColor?: ThemeColor
 }
 export type ProfileHeaderType = {

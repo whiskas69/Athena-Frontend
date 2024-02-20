@@ -10,13 +10,13 @@ import { Direction } from '@mui/material'
 
 // ** Types
 import {
-  Skin,
-  Mode,
   AppBar,
-  Footer,
   ContentWidth,
-  VerticalNavToggle,
-  HorizontalMenuToggle
+  Footer,
+  HorizontalMenuToggle,
+  Mode,
+  Skin,
+  VerticalNavToggle
 } from 'src/@core/layouts/types'
 
 type ThemeConfig = {
@@ -51,7 +51,7 @@ const themeConfig: ThemeConfig = {
   // ** Layout Configs
   templateName: 'Athena Core' /* App Name */,
   layout: 'vertical' /* vertical | horizontal */,
-  mode: 'light' as Mode /* light | dark | semi-dark /*! Note: semi-dark value will only work for Vertical Layout */,
+  mode: 'dark' as Mode /* light | dark | semi-dark /*! Note: semi-dark value will only work for Vertical Layout */,
   direction: 'ltr' /* ltr | rtl */,
   skin: 'default' /* default | bordered */,
   contentWidth: 'boxed' /* full | boxed */,
