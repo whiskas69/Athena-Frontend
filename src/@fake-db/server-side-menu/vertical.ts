@@ -20,8 +20,8 @@ const navigation: VerticalNavItemsType = [
         path: '/dashboards/crm'
       },
       {
-        title: 'eCommerce',
-        path: '/dashboards/ecommerce'
+        title: 'instance',
+        path: '/dashboards/instance'
       }
     ]
   },
