@@ -2,20 +2,20 @@
 import Grid from '@mui/material/Grid'
 
 // ** Demo Component Imports
-import CrmSessions from 'src/views/dashboards/crm/CrmSessions'
-import CrmRevenueGrowth from 'src/views/dashboards/crm/CrmRevenueGrowth'
-import CrmBrowserStates from 'src/views/dashboards/crm/CrmBrowserStates'
-import CrmProjectStatus from 'src/views/dashboards/crm/CrmProjectStatus'
 import CrmActiveProjects from 'src/views/dashboards/crm/CrmActiveProjects'
-import CrmLastTransaction from 'src/views/dashboards/crm/CrmLastTransaction'
 import CrmActivityTimeline from 'src/views/dashboards/crm/CrmActivityTimeline'
+import CrmBrowserStates from 'src/views/dashboards/crm/CrmBrowserStates'
+import CrmEarningReportsWithTabs from 'src/views/dashboards/crm/CrmEarningReportsWithTabs'
+import CrmLastTransaction from 'src/views/dashboards/crm/CrmLastTransaction'
+import CrmProjectStatus from 'src/views/dashboards/crm/CrmProjectStatus'
+import CrmRevenueGrowth from 'src/views/dashboards/crm/CrmRevenueGrowth'
 import CrmSalesWithAreaChart from 'src/views/dashboards/crm/CrmSalesWithAreaChart'
 import CrmSalesWithRadarChart from 'src/views/dashboards/crm/CrmSalesWithRadarChart'
-import CrmEarningReportsWithTabs from 'src/views/dashboards/crm/CrmEarningReportsWithTabs'
+import CrmSessions from 'src/views/dashboards/crm/CrmSessions'
 
 // ** Custom Component Imports
-import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
 import CardStatsVertical from 'src/@core/components/card-statistics/card-stats-vertical'
+import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
 
 const CrmDashboard = () => {
   return (
