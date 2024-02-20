@@ -1,29 +1,19 @@
-// ** React Imports
-// import * as React from 'react';
 import { useEffect, useState } from 'react';
 
-// ** MUI Components
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
-// ** Custom Component Import
 import CustomTextField from 'src/@core/components/mui/text-field';
 
-// ** Third Party Imports
-
-// ** Types Imports
 import { ProjectTableRowType } from 'src/@fake-db/types';
 
-// ** Custom Components Imports
 import OptionsMenu from 'src/@core/components/option-menu';
 
-// ** Utils Import
 import { FormControl, InputLabel, MenuItem, Select, Typography } from '@mui/material';
 import { hexToRGBA } from 'src/@core/utils/hex-to-rgba';
-
 import { useRouter } from 'next/router';
 import StatusIcon from './StatusIcon';
 import StatusOfflineIcon from './StatusOfflineIcon';
@@ -50,7 +40,6 @@ interface CellType {
 //     )
 //   }
 // }
-
 
 const columns: GridColDef[] = [
   {
@@ -172,7 +161,6 @@ const columns: GridColDef[] = [
 ]
 
 const InstancesDashboard = ({ props, page }: { props: any, page: string }) => {
-
   // ** State
   const [data, setData] = useState(props)
   const [value, setValue] = useState<string>('')
@@ -183,8 +171,6 @@ const InstancesDashboard = ({ props, page }: { props: any, page: string }) => {
     //   setData(response.data)
     // })
     // setData(response.data)
-    console.log(page);
-
   }, [value])
 
   const handleFilter = (val: string) => {
@@ -227,7 +213,6 @@ const InstancesDashboard = ({ props, page }: { props: any, page: string }) => {
                 <MenuItem value={20}>offline</MenuItem>
               </Select>
             </FormControl>}
-
           </>
         }
 

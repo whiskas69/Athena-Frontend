@@ -1,10 +1,9 @@
 // ** React Imports
+
 import { ReactNode, useState } from 'react'
 
-// ** Next Imports
 import Link from 'next/link'
 
-// ** MUI Components
 import Box, { BoxProps } from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Checkbox from '@mui/material/Checkbox'
@@ -122,7 +121,7 @@ const LoginPage = () => {
         type: 'manual',
         message: 'Email or Password is invalid'
       })
-    })
+    }))
   }
 
   const router = useRouter()
