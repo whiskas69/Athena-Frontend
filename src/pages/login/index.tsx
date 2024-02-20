@@ -121,7 +121,7 @@ const LoginPage = () => {
         type: 'manual',
         message: 'Email or Password is invalid'
       })
-    }))
+    })
   }
 
   const router = useRouter()
