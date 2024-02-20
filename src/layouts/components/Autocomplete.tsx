@@ -1,31 +1,31 @@
 // ** React Imports
-import { useEffect, useCallback, useRef, useState, ChangeEvent } from 'react'
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react'
 
 // ** Next Imports
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 // ** MUI Imports
+import { AutocompleteRenderInputParams } from '@mui/material/Autocomplete'
 import Box from '@mui/material/Box'
-import Grid from '@mui/material/Grid'
-import List from '@mui/material/List'
 import MuiDialog from '@mui/material/Dialog'
+import Grid from '@mui/material/Grid'
+import IconButton from '@mui/material/IconButton'
+import InputAdornment from '@mui/material/InputAdornment'
+import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
+import ListItemButton from '@mui/material/ListItemButton'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
-import IconButton from '@mui/material/IconButton'
-import useMediaQuery from '@mui/material/useMediaQuery'
 import { styled, useTheme } from '@mui/material/styles'
-import ListItemButton from '@mui/material/ListItemButton'
-import InputAdornment from '@mui/material/InputAdornment'
-import { AutocompleteRenderInputParams } from '@mui/material/Autocomplete'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 // ** Third Party Imports
 import axios from 'axios'
 
 // ** Types Imports
-import { AppBarSearchType } from 'src/@fake-db/types'
 import { Settings } from 'src/@core/context/settingsContext'
+import { AppBarSearchType } from 'src/@fake-db/types'
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'
@@ -66,7 +66,7 @@ const defaultSuggestionsData: DefaultSuggestionsType[] = [
       {
         icon: 'tabler:chart-pie-2',
         suggestion: 'Analytics',
-        link: '/dashboards/analytics'
+        link: '/dashboards'
       },
       {
         icon: 'tabler:device-analytics',
@@ -470,15 +470,15 @@ const AutocompleteComponent = ({ hidden, settings }: Props) => {
                   '& + .MuiAutocomplete-popper': {
                     ...(searchValue.length
                       ? {
-                          overflow: 'auto',
-                          maxHeight: 'calc(100vh - 69px)',
-                          borderTop: `1px solid ${theme.palette.divider}`,
-                          height: fullScreenDialog ? 'calc(100vh - 69px)' : 483,
-                          '& .MuiListSubheader-root': { p: theme.spacing(3.75, 6, 1.75) }
-                        }
+                        overflow: 'auto',
+                        maxHeight: 'calc(100vh - 69px)',
+                        borderTop: `1px solid ${theme.palette.divider}`,
+                        height: fullScreenDialog ? 'calc(100vh - 69px)' : 483,
+                        '& .MuiListSubheader-root': { p: theme.spacing(3.75, 6, 1.75) }
+                      }
                       : {
-                          '& .MuiAutocomplete-listbox': { pb: 0 }
-                        })
+                        '& .MuiAutocomplete-listbox': { pb: 0 }
+                      })
                   }
                 }}
                 renderInput={(params: AutocompleteRenderInputParams) => {
