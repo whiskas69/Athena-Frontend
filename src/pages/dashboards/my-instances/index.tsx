@@ -18,28 +18,48 @@ const MyInstances = () => {
     name: 'hello world',
     status: 1,
     author: 'me',
-    endDate: '20 February 2024'
+    createdAt: '20 February 2024',
+    endDate: '20 February 2024',
+    size: 'Nano',
+    type: 'Jupyter Notebook',
+    server: 'DGX-A100',
+    location: 'Faculty of IT, KMITL'
   },
   {
     id: "JU-31",
     name: 'bro what?',
     status: 1,
     author: 'shared',
-    endDate: '21 February 2024'
+    createdAt: '21 February 2024',
+    endDate: '21 February 2024',
+    size: 'Nano',
+    type: 'Jupyter Notebook',
+    server: 'DGX-A100',
+    location: 'Faculty of IT, KMITL'
   },
   {
     id: "JU-32",
     name: 'sleep',
     status: 0,
     author: 'shared',
-    endDate: '18 February 2024'
+    createdAt: '18 February 2024',
+    endDate: '18 February 2024',
+    size: 'Nano',
+    type: 'Jupyter Notebook',
+    server: 'DGX-A100',
+    location: 'Faculty of IT, KMITL'
   },
   {
     id: "JU-33",
     name: 'awake',
     status: 0,
     author: 'me',
-    endDate: '19 February 2024'
+    createdAt: '19 February 2024',
+    endDate: '19 February 2024',
+    size: 'Nano',
+    type: 'Jupyter Notebook',
+    server: 'DGX-A100',
+    location: 'Faculty of IT, KMITL'
   }])
   return (
     <ApexChartWrapper>
