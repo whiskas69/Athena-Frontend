@@ -16,7 +16,7 @@ const navigation = (): VerticalNavItemsType => {
     {
       title: 'My Instances',
       icon: 'tabler:server',
-      path: '/apps/chat'
+      path: '/dashboards/my-instances'
     },
     {
       title: 'Credits',
