@@ -21,9 +21,10 @@ import { ProjectTableRowType } from 'src/@fake-db/types';
 import OptionsMenu from 'src/@core/components/option-menu';
 
 // ** Utils Import
-import { Typography } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select, Typography } from '@mui/material';
 import { hexToRGBA } from 'src/@core/utils/hex-to-rgba';
 
+import { useRouter } from 'next/router';
 import StatusIcon from './StatusIcon';
 import StatusOfflineIcon from './StatusOfflineIcon';
 import StatusOnlineIcon from './StatusOnlineIcon';
@@ -51,7 +52,6 @@ interface CellType {
 // }
 
 
-
 const columns: GridColDef[] = [
   {
     flex: 0.1,
@@ -59,10 +59,18 @@ const columns: GridColDef[] = [
     minWidth: 150,
     headerName: 'ID',
     renderCell: ({ row }: CellType) => {
+      const router = useRouter()
+      const handleSelectedInstance = (id: string) => {
+        router.push(`/dashboards/my-instances/instance-detail/?id=${id}`)
+      };
       return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Typography noWrap sx={{ color: '#7367F0', fontWeight: 500 }}>
+            <Typography noWrap sx={{
+              color: '#7367F0', fontWeight: 500, cursor: 'pointer', transition: 'all 0.3s ease', '&:hover': {
+                color: '#eee',
+              }
+            }} onClick={() => handleSelectedInstance(row.id)}>
               #{row.id}
             </Typography>
           </Box>
@@ -76,9 +84,20 @@ const columns: GridColDef[] = [
     field: 'name',
     headerName: 'NAME',
     renderCell: ({ row }: CellType) => {
-      return (<Typography noWrap sx={{ color: '#7367F0', fontWeight: 500 }}>
-        {row.name}
-      </Typography>)
+      const router = useRouter()
+      const handleSelectedInstance = (id: string) => {
+        router.push(`/dashboards/my-instances/instance-detail/?id=${id}`)
+      };
+      return (
+        <Typography noWrap sx={{
+          color: '#7367F0', fontWeight: 500, cursor: 'pointer', transition: 'all 0.3s ease', '&:hover': {
+            color: '#eee',
+          }
+        }}
+          onClick={() => handleSelectedInstance(row.id)}
+        >
+          {row.name}
+        </Typography >)
     }
   },
   {
@@ -113,7 +132,7 @@ const columns: GridColDef[] = [
     flex: 0.1,
     minWidth: 150,
     field: 'endDate',
-    headerName: 'ENDDATE',
+    headerName: 'EXPIRY DATE',
     renderCell: ({ row }: CellType) => {
       return (<Typography noWrap sx={{ color: 'text.secondary', fontWeight: 500 }}>
         {row.endDate}
@@ -152,7 +171,8 @@ const columns: GridColDef[] = [
   }
 ]
 
-const InstancesDashboard = ({ props }: any) => {
+const InstancesDashboard = ({ props, page }: { props: any, page: string }) => {
+
   // ** State
   const [data, setData] = useState(props)
   const [value, setValue] = useState<string>('')
@@ -163,6 +183,8 @@ const InstancesDashboard = ({ props }: any) => {
     //   setData(response.data)
     // })
     // setData(response.data)
+    console.log(page);
+
   }, [value])
 
   const handleFilter = (val: string) => {
@@ -192,7 +214,7 @@ const InstancesDashboard = ({ props }: any) => {
               // renderInput=""
               renderInput={(params) => <TextField {...params} label="Select Status" />}
             /> */}
-            {/* <FormControl sx={{ ml: 4, minWidth: 80 }} size="small">
+            {page === 'my-instances' && <FormControl sx={{ ml: 4, minWidth: 80 }} size="small">
               <InputLabel id="demo-simple-select-label">Select Status</InputLabel>
               <Select
                 labelId="demo-simple-select-label"
@@ -204,7 +226,8 @@ const InstancesDashboard = ({ props }: any) => {
                 <MenuItem value={10}>online</MenuItem>
                 <MenuItem value={20}>offline</MenuItem>
               </Select>
-            </FormControl> */}
+            </FormControl>}
+
           </>
         }
 
