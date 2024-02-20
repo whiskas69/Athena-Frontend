@@ -16,17 +16,17 @@ const AnalyticsDashboard = () => {
   const [data, setData] = useState([{
     id: "JU-30",
     name: 'hello world',
-    status: 0,
-    author: 'big',
+    status: 1,
+    author: 'me',
     endDate: '20 February 2024'
   },
   {
     id: "JU-31",
     name: 'bro what?',
     status: 1,
-    author: 'Tiger',
+    author: 'shared',
     endDate: '21 February 2024'
-  }])
+  },])
   return (
     <ApexChartWrapper>
       <KeenSliderWrapper>
@@ -41,7 +41,7 @@ const AnalyticsDashboard = () => {
             <Credits />
           </Grid>
           <Grid item xs={12}>
-            <InstancesDashboard props={data} />
+            <InstancesDashboard props={data} page={'dashboard'} />
           </Grid>
         </Grid>
       </KeenSliderWrapper>
