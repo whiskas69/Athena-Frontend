@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import Grid from '@mui/material/Grid';
 
-import BasicInfo from 'src/views/dashboards/ecommerce/BasicInfo';
-import Instancesdetail from 'src/views/dashboards/ecommerce/Instancesdetail';
+import BasicInfo from 'src/views/dashboards/instanceDetail/BasicInfo';
+import Instancesdetail from 'src/views/dashboards/instanceDetail/Instancesdetail';
 
 import FileIcon from '@mui/icons-material/InsertDriveFileOutlined';
 import PersonIcon from '@mui/icons-material/Person';
