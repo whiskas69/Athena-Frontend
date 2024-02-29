@@ -18,6 +18,8 @@ import { ThemeColor } from 'src/@core/layouts/types'
 // ** Custom Components Imports
 import CustomAvatar from 'src/@core/components/mui/avatar'
 import StatusOfflineIcon from '../dashboard/StatusOfflineIcon'
+import StatusOnlineIcon from '../dashboard/StatusOnlineIcon'
+import StatusIcon from '../dashboard/StatusIcon'
 
 interface DataType {
   icon: string
@@ -55,30 +57,6 @@ const dataTag: DataTag[] = [
   }
 ]
 
-
-const renderStats = (props: any) => {
-
-  return data.map((sale: DataType, index: number) => (
-    <Grid
-      item
-      xs={5}
-      md={4}
-      key={index}
-      sx={{ flexDirection: 'row', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-    >
-      <Box key={index} sx={{ display: 'flex', alignItems: 'center' }}>
-        <CustomAvatar skin='light' variant='rounded' color={sale.color} sx={{ mr: 2, width: 42, height: 42 }}>
-          {props.status === 1 ? <Icon icon={sale.icon} fontSize='1.5rem' /> : <StatusOfflineIcon />}
-        </CustomAvatar>
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          <Typography variant='h5'>{sale.stats}</Typography>
-          <Typography variant='body2'>{sale.title}</Typography>
-        </Box>
-      </Box>
-    </Grid>
-  ))
-}
-
 const renderTag = () => {
   return dataTag.map((sale: DataTag, index: number) => (
     <Typography
@@ -96,6 +74,65 @@ const renderTag = () => {
       {sale.tag}
     </Typography>
   ))
+}
+
+const rendertextstats = (props: any) => {
+  console.log("stats", props)
+
+  if (props.status === 1) {
+    return <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Typography variant='h5' sx={{ color: "#28C76F " }}>Running</Typography>
+      <Typography variant='body2'>Normal</Typography>
+    </Box>
+  }
+  if (props.status === 0) {
+    return <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Typography variant='h5'>Stop</Typography>
+      <Typography variant='body2'>Normal</Typography>
+    </Box>
+  }
+}
+
+const rendertextDate = (props: any) => {
+  console.log("props", props)
+
+  const endDate = new Date(props.endDate);
+  const createdAt = new Date(props.createdAt);
+
+  const timeDifference = endDate - createdAt;
+  const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24))
+
+  if (daysDifference === 0) {
+    return 1
+  }
+  else {
+    return daysDifference
+  }
+}
+
+const renderStats = (props: any) => {
+  console.log(props)
+
+  return <Grid item xs={6} md={7} sx={{ flexDirection: 'row', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <Box sx={{ display: 'flex', alignItems: 'center', mr: 2 }}>
+      <CustomAvatar skin='light' variant='rounded' sx={{ mr: 2, width: 42, height: 42 }}>
+        {props.status === 1 ? <StatusOnlineIcon /> : <StatusOfflineIcon />}
+      </CustomAvatar>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        {rendertextstats(props)}
+      </Box>
+    </Box>
+
+    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+      <CustomAvatar skin='light' variant='rounded' sx={{ mr: 2, width: 42, height: 42 }}>
+        <Icon icon='tabler:clock' fontSize='1.2rem' />
+      </CustomAvatar>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Typography variant='h5'>{rendertextDate(props)}</Typography>
+        <Typography variant='body2'>Day Left</Typography>
+      </Box>
+    </Box>
+  </Grid>
 }
 
 const renderDetail = (props: any) => {
