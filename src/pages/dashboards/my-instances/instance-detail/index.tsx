@@ -6,6 +6,7 @@ import BasicInfo from 'src/views/dashboards/instanceDetail/BasicInfo';
 import Instancesdetail from 'src/views/dashboards/instanceDetail/Instancesdetail';
 
 import FileIcon from '@mui/icons-material/InsertDriveFileOutlined';
+import LockIcon from '@mui/icons-material/Lock';
 import PersonIcon from '@mui/icons-material/Person';
 import { Tab, Tabs, Typography } from '@mui/material';
 import { Box } from '@mui/system';
@@ -13,6 +14,7 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts';
 import Files from 'src/views/dashboards/instanceDetail/files';
+import Security from 'src/views/dashboards/instanceDetail/security';
 
 interface TabPanelProps {
   children?: React.ReactNode
@@ -147,6 +149,7 @@ const InstanceDetail = () => {
                 {...allyProps(0)}
               />
               <Tab disableRipple icon={<FileIcon />} iconPosition='start' label='Files' {...allyProps(1)} />
+              <Tab disableRipple icon={<LockIcon />} iconPosition='start' label='Security' {...allyProps(2)} />
             </Tabs>
           </Box>
           <CustomTabPanel value={value} index={0}>
@@ -154,6 +157,9 @@ const InstanceDetail = () => {
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
             <Files />
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={2}>
+            <Security />
           </CustomTabPanel>
         </Grid>
       </Grid>
