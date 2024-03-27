@@ -26,12 +26,13 @@ import format from 'date-fns/format'
 
 // ** Store & Actions Imports
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchData, deleteInvoice } from 'src/store/apps/invoice'
+import { fetchData, deleteUser } from 'src/store/apps/user'
 
 // ** Types Imports
 import { RootState, AppDispatch } from 'src/store'
 import { ThemeColor } from 'src/@core/layouts/types'
-import { InvoiceType } from 'src/types/apps/invoiceTypes'
+// import { InvoiceType } from 'src/types/apps/invoiceTypes'
+import { UsersType } from 'src/types/apps/userTypes'
 
 
 // ** Utils Import
@@ -59,7 +60,7 @@ interface CustomInputProps {
 }
 
 interface CellType {
-  row: InvoiceType
+  row: UsersType
 }
 
 // ** Styled component for the link in the dataTable
@@ -79,7 +80,7 @@ const invoiceStatusObj: InvoiceStatusObj = {
 }
 
 // ** renders client column
-const renderClient = (row: InvoiceType) => {
+const renderClient = (row: UsersType) => {
   if (row.avatar.length) {
     return <CustomAvatar src={row.avatar} sx={{ mr: 2.5, width: 38, height: 38 }} />
   } else {
@@ -89,7 +90,7 @@ const renderClient = (row: InvoiceType) => {
         color={(row.avatarColor as ThemeColor) || ('primary' as ThemeColor)}
         sx={{ mr: 2.5, fontWeight: 500, fontSize: '1rem', width: 38, height: 38 }}
       >
-        {getInitials(row.name || 'John Doe')}
+        {getInitials(row.fullName || 'John Doe')}
       </CustomAvatar>
     )
   }
@@ -102,17 +103,17 @@ const defaultColumns: GridColDef[] = [
     minWidth: 320,
     headerName: 'USERS',
     renderCell: ({ row }: CellType) => {
-      const { name, companyEmail } = row
+      const { fullName, email } = row
 
       return (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           {renderClient(row)}
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Typography noWrap sx={{ color: 'text.secondary', fontWeight: 500 }}>
-              {name}
+              {fullName}
             </Typography>
             <Typography noWrap variant='body2' sx={{ color: 'text.disabled' }}>
-              {companyEmail}
+              {email}
             </Typography>
           </Box>
         </Box>
@@ -126,14 +127,14 @@ const defaultColumns: GridColDef[] = [
     field: 'status',
     headerName: 'STATUS',
     renderCell: ({ row }: CellType) => {
-      if (row.status == 'Author') {
-        return <Typography sx={{ color: '#28C76F', px: '5px', py: '10px', bgcolor: '#28C76F29' }}>Author</Typography>
+      if (row.status == 'active') {
+        return <Typography sx={{ color: '#28C76F', px: '5px', py: '10px', bgcolor: '#28C76F29' }}>active</Typography>
       }
-      if (row.status == 'Contributor') {
-        return <Typography sx={{ color: '#00CFE8', px: '5px', py: '10px', bgcolor: '#00CFE829' }}>Contributor</Typography>
+      if (row.status == 'inactive') {
+        return <Typography sx={{ color: '#00CFE8', px: '5px', py: '10px', bgcolor: '#00CFE829' }}>inactive</Typography>
       }
-      if (row.status == 'Viewer') {
-        return <Typography sx={{ color: '#A8AAAE', px: '5px', py: '10px', bgcolor: '#A8AAAE29' }}>Viewer</Typography>
+      if (row.status == 'pending') {
+        return <Typography sx={{ color: '#A8AAAE', px: '5px', py: '10px', bgcolor: '#A8AAAE29' }}>pending</Typography>
       }
     }
   }
@@ -147,13 +148,15 @@ const Security = () => {
 
   // ** Hooks
   const dispatch = useDispatch<AppDispatch>()
-  const store = useSelector((state: RootState) => state.invoice)
+  const store = useSelector((state: RootState) => state.user.allData)
 
   useEffect(() => {
     dispatch(
       fetchData({
         q: value,
-        status: statusValue
+        status: statusValue,
+        role: "",
+        currentPlan: ""
       })
     )
   }, [dispatch, statusValue, value])
@@ -169,7 +172,7 @@ const Security = () => {
       renderCell: ({ row }: CellType) => (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Tooltip title='Delete Invoice'>
-            <IconButton size='small' onClick={() => dispatch(deleteInvoice(row.id))}>
+            <IconButton size='small' onClick={() => dispatch(deleteUser(row.id))}>
               <Icon icon='tabler:trash' />
             </IconButton>
           </Tooltip>
@@ -229,7 +232,7 @@ const Security = () => {
       <DataGrid
         autoHeight
         pagination
-        rows={store.data}
+        rows={store}
         columns={columns}
         disableRowSelectionOnClick
         pageSizeOptions={[10, 25, 50]}

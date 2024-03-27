@@ -29,7 +29,7 @@ export type InvoiceType = {
   companyEmail: string
   balance: string | number
   invoiceStatus: InvoiceStatus
-  status: string
+  // status: string
 }
 
 export type InvoicePaymentType = {
